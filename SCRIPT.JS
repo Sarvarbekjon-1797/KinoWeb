@@ -1,4 +1,4 @@
-const numberOfFilms = +prompt('How many movies have You watched?', 'Your answer');
+const numberOfFilms = +prompt('How many movies have You watched?', '');
 
 
 let personlaMovieDB = {
@@ -9,12 +9,24 @@ let personlaMovieDB = {
     privat : false
 }
 
-const a = prompt('One of the last movies watched?', 'your answer here');
-const b = prompt('How do you rate it?', 'on a ten -point scale');
-const c = prompt('One of the last movies watched?', 'your answer here');
-const d = prompt('How do you rate it?', 'on a ten -point scale');
+if(personlaMovieDB.count<=10 ){
+    console.log('watched quite a few films')
+}else if(personlaMovieDB.count>10 && personlaMovieDB.count<30){
+    console.log('you are a classic viewer')
+}
 
-personlaMovieDB.movies[a] =b;
-personlaMovieDB.movies[c] =d;
+
+
+
+for (let i=0; i<2; i++){
+    const a = prompt('One of the last movies watched?', ''),
+          b = prompt('How do you rate it?', '');
+    if(a!=null && b!=null && a!='' && b!='' && a.length<50){
+        personlaMovieDB.movies[a] =b;
+    }else {
+        i-- 
+    }
+    
+}
 
 console.log(personlaMovieDB)
